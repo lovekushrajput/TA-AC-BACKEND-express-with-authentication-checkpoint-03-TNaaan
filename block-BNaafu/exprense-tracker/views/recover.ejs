@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/stylesheets/style.css">
+<div class="form-control">
+
+
+    <form action="/users/forgot" method="POST">
+        <h2>Recover password</h2>
+        <% if(err) {%>
+            <p>
+                <%= err%>
+            </p>
+            <% } %>
+                <input type="email" name="email" placeholder="Email">
+                <input type="submit" value="Get OTP" class="btn">
+    </form>
+</div>
