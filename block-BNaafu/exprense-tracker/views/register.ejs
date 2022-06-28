@@ -1,0 +1,21 @@
+<%include partial/header%>
+    <div class="form-control">
+
+
+        <form action="/users" method="POST">
+            <h2>Register</h2>
+            <% if(err) {%>
+                <p>
+                    <%= err%>
+                </p>
+                <% } %>
+                    <input type="text" name="name" placeholder="Name">
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Password">
+                    <input type="number" name="age" placeholder="Age">
+                    <input type="tel" name="phone" placeholder="Phone">
+                    <input type="text" name="country" placeholder="Country">
+                    <input type="submit" value="Register" class="btn">
+        </form>
+
+    </div>

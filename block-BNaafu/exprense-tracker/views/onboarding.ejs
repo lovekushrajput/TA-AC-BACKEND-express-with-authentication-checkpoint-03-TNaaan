@@ -1,0 +1,119 @@
+<% include partial/header%>
+    <a href="/users/income">Add Income</a>
+    <a href="/users/expense">Add Expense</a>
+
+    <div>
+        <p>TotalIncome :</p>
+
+        <% if(totalIncome){ %>
+            <span>
+                <%=totalIncome%>
+            </span>
+            <% }else{ %>
+                No data 😑
+                <% } %>
+
+
+                    <p>TotalExpense :</p>
+                    <% if(totalExpense){ %>
+                        <span>
+                            <%=totalExpense%>
+                        </span>
+                        <% }else{ %>
+                            No data 😑
+                            <% } %>
+
+                                <p>TotalSaving : </p>
+                                <% if(totalSaving){ %>
+                                    <span>
+                                        <%=totalSaving%>
+                                    </span>
+                                    <% }else{ %>
+                                        No data 😑
+                                        <% } %>
+    </div>
+
+    <section class="section">
+        <article>
+            <% data.forEach((elm)=> { %>
+                <% if(elm.source){%>
+                    <h2>
+                        <%= elm.source %>
+                    </h2>
+                    <% } else {%>
+                        <h2>
+                            <%= elm.category %>
+                        </h2>
+                        <%}%>
+
+                            <p>
+                                ₹<%= elm.amount%>
+                            </p>
+                            <p>
+                                <%= elm.date %>
+                            </p>
+                            <% })%>
+        </article>
+
+        <aside>
+            <a href="/users/onboarding">All</a>
+            <!-- filter by month -->
+            <form action="/users/onboarding">
+                <h2>Filter by Month and year</h2>
+                <input type="month" name="start" min="2022-01" value="2022-06">
+                <input type="submit" value="check">
+            </form>
+
+            <!-- filter by source -->
+            <form action="/users/onboarding">
+                <h2>Filter by Source</h2>
+                <select name="source">
+                    <% incomes.forEach((income)=> { %>
+                        <option value="<%=income %>">
+                            <%=income %>
+                        </option>
+                        <% })%>
+                </select>
+                <input type="submit" value="check">
+            </form>
+
+
+            <!-- filter by category -->
+            <form action="/users/onboarding">
+                <h2>Filter by Category</h2>
+                <select name="category">
+                    <% expenses.forEach((expense)=> { %>
+                        <option value="<%=expense %>">
+                            <%=expense %>
+                        </option>
+                        <% })%>
+                </select>
+                <input type="submit" value="check">
+            </form>
+
+            <!-- filter by combination of Data & Category -->
+            <form action="/users/onboarding">
+                <h2>Filter by Date & Category</h2>
+
+                <input type="date" name="date" placeholder="Data">
+                <select name="categori">
+                    <% expenses.forEach((expense)=> { %>
+                        <option value="<%=expense %>">
+                            <%=expense %>
+                        </option>
+                        <% })%>
+                </select>
+                <input type="submit" value="check">
+            </form>
+
+            <!-- filter by date -->
+            <form action="/users/onboarding">
+                <h2>Filter by Date</h2>
+                <input type="date" name="from" placeholder="Date">
+                <input type="date" name="to" placeholder="Date">
+                <input type="submit" value="check">
+            </form>
+
+        </aside>
+
+    </section>

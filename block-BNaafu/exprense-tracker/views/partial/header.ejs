@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
+        </style>
+</head>
+
+<body>
+
+    <% if(user) {%>
+        <header>
+            <nav>
+                <ul>
+                    <li class="brand"> 
+                        Xpence Tracker
+                    </li>
+                 <div>
+                    <li>
+                        <a href="/users/logout">Sign Out</a>
+                    </li>
+                    <li>
+                        <a href="#">Profile</a>
+                    </li>
+                </div>
+                </ul>
+            </nav>
+        </header>
+        <% } else { %>
+            <header>
+                <nav>
+                    <ul>
+
+
+                        <li class="brand">
+                            Xpence <span>Tracker</span> 
+                        </li>
+
+                        <div>
+
+                        <li>
+                            <a href="/users/register">Register</a>
+                        </li>
+                        <li>
+                            <a href="/users/login">Login</a>
+                        </li>
+                        <li>
+                            <a href="/auth/github">Login with Github</a>
+                        </li>
+                        <li>
+                            <a href="/auth/google">Login with Google</a>
+                        </li>
+                    </div>
+                    </ul>
+                </nav>
+            </header>
+            <% } %>
