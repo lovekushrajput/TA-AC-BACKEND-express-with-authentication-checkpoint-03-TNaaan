@@ -170,6 +170,7 @@ a {
 header {
   background-color: rgb(127, 133, 135);
   padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
 }
 
 header nav ul {
@@ -251,24 +252,134 @@ header nav ul div a {
   cursor: pointer;
 }
 
-/* onboarding */
-.section{
-  display: flex;
-  padding: 1rem 2rem;
+/* drop down */
+.dropbtn {
+  cursor: pointer;
 }
 
-.section article {
-  width: 90%;
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  padding: 1rem;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  right: 1rem;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  display: block;
+}
+
+.show {
+  display: block;
+}
+
+/* onboarding */
+.section {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  width: 100%;
+}
+
+.parent {
+  width: 57%;
 }
 
 .section aside {
   width: 35%;
 }
 
-.section aside form{
-display: flex;
-flex-direction: column;
-row-gap: 0.6rem;
+.section aside form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.6rem;
+  margin-top: 0.5rem;
+}
 
-margin-top: 0.5rem;
+/* income and expense buton */
+.btn-2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.g-btn {
+  background-color: rgb(72, 187, 120);
+  padding: 0.7rem 0.9rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  display: inline-block;
+  color: white;
+  text-transform: uppercase;
+  /* margin-bottom: 1rem; */
+}
+
+.r {
+  background-color: rgb(255, 127, 127);
+}
+
+/* parent */
+.parent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col-1 {
+  width: 30%;
+}
+
+.col-2 {
+  width: 70%;
+}
+.sub-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.color-red {
+  color: red;
+  font-size: 1.2rem;
+}
+
+.color-green {
+  color: forestgreen;
+  font-size: 1.2rem;
+}
+
+.sub-child h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.date {
+  font-size: 1.1rem;
+  margin: 0.4rem 0;
+}
+
+.d2d {
+  display: flex;
+  justify-content: space-between;
+}
+
+.saving {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.history {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
