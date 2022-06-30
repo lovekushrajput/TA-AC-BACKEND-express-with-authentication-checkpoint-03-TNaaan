@@ -1,0 +1,17 @@
+<% include partial/header%>
+    <div class="form-control">
+
+
+        <form action="/users/login" method="POST">
+            <h2>Login</h2>
+            <% if(err) {%>
+                <p class="color-red">
+                    <%= err%>
+                </p>
+                <% } %>
+                    <input type="email" name="email" placeholder="Email">
+                    <input type="password" name="password" placeholder="Password">
+                    <a href="/users/forgot">Forgotten password?</a>
+                    <input type="submit" value="Login" class="btn">
+        </form>
+    </div>

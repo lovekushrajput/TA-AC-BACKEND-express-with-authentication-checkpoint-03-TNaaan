@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <% if(user) {%>
+        <header>
+            <nav>
+                <ul>
+                    <li class="brand">
+                        Expence Tracker
+                    </li>
+                    <div>
+                        <li>
+                            <a href="/users/logout">Sign Out</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <%=user.name%>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <a href="#" onclick="myFunction()" class="dropbtn">Profile</a>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <h2> Name : <%=user.name%>
+                                    </h2>
+                                    <a href="#">
+                                        <%=user.email%>
+                                    </a>
+                                    <p>
+                                        <%=user.phone%>
+                                    </p>
+                                    <% if(user.isVerified) {%>
+                                        <p>Varified</p>
+                                        <% } else { %>
+                                            Not Varified
+                                            <% } %>
+                                </div>
+                            </div>
+                        </li>
+
+
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        <% } else { %>
+            <header>
+                <nav>
+                    <ul>
+
+
+                        <li class="brand">
+                            Expence <span>Tracker</span>
+                        </li>
+
+                        <div>
+
+                            <li>
+                                <a href="/users/register">Register</a>
+                            </li>
+                            <li>
+                                <a href="/users/login">Login</a>
+                            </li>
+                            <li>
+                                <a href="/auth/github">Login with Github</a>
+                            </li>
+                            <li>
+                                <a href="/auth/google">Login with Google</a>
+                            </li>
+                        </div>
+                    </ul>
+                </nav>
+            </header>
+            <% } %>
+
+                <script>
+                    /* When the user clicks on the button, 
+                    toggle between hiding and showing the dropdown content */
+                    function myFunction() {
+                        document.getElementById("myDropdown").classList.toggle("show");
+                    }
+
+                    // Close the dropdown if the user clicks outside of it
+                    window.onclick = function (event) {
+                        if (!event.target.matches('.dropbtn')) {
+                            var dropdowns = document.getElementsByClassName("dropdown-content");
+                            var i;
+                            for (i = 0; i < dropdowns.length; i++) {
+                                var openDropdown = dropdowns[i];
+                                if (openDropdown.classList.contains('show')) {
+                                    openDropdown.classList.remove('show');
+                                }
+                            }
+                        }
+                    }
+                </script>

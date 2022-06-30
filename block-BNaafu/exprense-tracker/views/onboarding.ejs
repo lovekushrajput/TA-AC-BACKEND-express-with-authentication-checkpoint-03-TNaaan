@@ -1,0 +1,145 @@
+<% include partial/header%>
+
+
+    <main>
+        <div class="btn-2">
+            <a href="/users/income" class="g-btn">Add Income</a>
+            <a href="/users/expense" class="g-btn r">Add Expense</a>
+        </div>
+
+        <section class="section">
+
+            <article class="parent">
+
+                <div class="col-1">
+                    <h2 class="saving">Current Month <br> Savings</h2>
+                    <p>TotalIncome :</p>
+
+                    <% if(totalIncome){ %>
+                        <span>
+                            <%=totalIncome%>
+                        </span>
+                        <% }else{ %>
+                            No data 😑
+                            <% } %>
+
+
+                                <p>TotalExpense :</p>
+                                <% if(totalExpense){ %>
+                                    <span class="color-red">
+                                        <%=totalExpense%>
+                                    </span>
+                                    <% }else{ %>
+                                        No data 😑
+                                        <% } %>
+
+                                            <p>TotalSaving : </p>
+                                            <% if(totalSaving){ %>
+                                                <span class="color-green">
+                                                    <%=totalSaving%>
+                                                </span>
+                                                <% }else{ %>
+                                                    No data 😑
+                                                    <% } %>
+                </div>
+
+
+                <article class="col-2">
+                    <h2 class="history">History</h2>
+                    <% if(data.length !==0) { %>
+
+                        <% data.forEach((elm)=> { %>
+                            <% if(elm.source){%>
+                                <div class="sub-child">
+
+                                    <div>
+                                        <h2>
+                                            <%= elm.source %>
+                                        </h2>
+                                        <p class="date">
+                                            <%= elm.date %>
+                                        </p>
+                                    </div>
+
+                                    <p class="color-green">
+                                        + ₹<%= elm.amount%>
+                                    </p>
+
+                                </div>
+                                <hr>
+                                <% } else {%>
+                                    <div class="sub-child">
+
+                                        <div>
+                                            <h2>
+                                                <%= elm.category %>
+                                            </h2>
+                                            <p class="date">
+                                                <%= elm.date %>
+                                            </p>
+                                        </div>
+
+                                        <p class="color-red">
+                                            - ₹<%= elm.amount%>
+                                        </p>
+
+                                    </div>
+                                    <hr>
+                                    <%}%>
+
+
+                                        <% })%>
+                                            <% } else { %>
+                                                <p>No data found</p>
+                                                <% } %>
+                </article>
+            </article>
+
+            <aside>
+                <a href="/users/onboarding">All History</a>
+                <!-- filter by month -->
+                <form action="/users/onboarding">
+                    <h2>Filter Saving by Month and year</h2>
+                    <input type="month" name="month" min="2022-01" value="2022-06">
+                    <input type="submit" value="check">
+                </form>
+
+                <!-- filter by source -->
+                <form action="/users/onboarding">
+                    <h2 class="color-green">Filter by Source</h2>
+                    <select name="source">
+                        <% incomes.forEach((income)=> { %>
+                            <option value="<%=income %>">
+                                <%=income %>
+                            </option>
+                            <% })%>
+                    </select>
+                    <input type="submit" value="check">
+                </form>
+
+
+                <!-- filter by category -->
+                <form action="/users/onboarding">
+                    <h2 class="color-red">Filter Category by using date</h2>
+                    <select name="category">
+                        <% expenses.forEach((expense)=> { %>
+                            <option value="<%=expense %>">
+                                <%=expense %>
+                            </option>
+                            <% })%>
+                    </select>
+                    <!-- filter by date -->
+                    <h2>Filter by Date</h2>
+                    <div class="d2d">
+                        <input type="date" name="start_date" placeholder="Date">
+                        <input type="date" name="end_date" placeholder="Date">
+                    </div>
+
+                    <input type="submit" value="check">
+                </form>
+
+            </aside>
+
+        </section>
+
+    </main>
